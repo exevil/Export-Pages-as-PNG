@@ -1,0 +1,25 @@
+{
+  "author" : "",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "name" : "Export Pages as PNG",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "com.bohemiancoding.sketch.runscriptidentifier"
+    ],
+    "isRoot" : true,
+    "title" : "Export Pages as PNG"
+  },
+  "identifier" : "com.example.sketch.1d666e81-a776-4255-959f-b2a5f608ea79",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "Export Pages as PNG"
+}

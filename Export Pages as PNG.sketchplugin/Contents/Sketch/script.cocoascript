@@ -1,0 +1,51 @@
+var onRun = function(context) {
+    
+    var padding = 100
+    
+    var document = context.document
+    var savePath = chooseDirectory()
+    
+    var exportedCount = 0
+    
+    var pagesLoop = context.document.pages().objectEnumerator()
+    while (item = pagesLoop.nextObject()) {
+        var artboard = MSArtboardGroup.alloc().initWithFrame(rectWithPadding(item.contentBounds()))
+        artboard.nodeName = item.name()
+        artboard.hasBackgroundColor = true
+        item.insertLayer_atIndex(artboard, 0)
+        
+        var exportFormat = MSExportFormat.formatWithScale_name_fileFormat(1.0, "", "png")
+        artboard.exportOptions().insertExportFormat_atIndex(exportFormat, 0)
+        var exportRequests = MSExportRequest.exportRequestsFromExportableLayer(artboard)
+        document.saveExportRequest_toFile(exportRequests[0], savePath + "/" + artboard.nodeName() + ".png")
+        
+        item.removeLayerAtIndex(0)
+        
+        exportedCount += 1
+    }
+    
+    document.showMessage(exportedCount + " pages have been exported")
+    
+    function rectWithPadding(rect) {
+        rect.origin.x -= padding
+        rect.origin.y -= padding
+        rect.size.width += padding * 2
+        rect.size.height += padding * 2
+        
+        return rect
+    }
+}
+
+function chooseDirectory() {
+    
+    // Configuring save panel
+    var openPanel = NSOpenPanel.openPanel()
+    openPanel.canChooseFiles = false
+    openPanel.canChooseDirectories = true
+    
+    // Launching panel
+    var result = openPanel.runModal()
+    if (result == NSFileHandlingPanelOKButton) {
+        return openPanel.URL().path()
+    }
+}
