@@ -1,5 +1,5 @@
 # Export Pages as PNG
-Single-command Sketch plugin that exports every page in document as png file in chosen directory with 100px paddings on each side for better look.
+Single-command Sketch plugin that exports every page in document as a png file in chosen directory with 100px paddings on each side for better look.
 
 *Since this plugin is only for internal use for now it haven't any UI yet. If you want to change paddings in exported files please edit the `padding` value inside the `Export Pages as PNG.sketchplugin/Contents/Sketch/script.cocoascript` file.*
 
