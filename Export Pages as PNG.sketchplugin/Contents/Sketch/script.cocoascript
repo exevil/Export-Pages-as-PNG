@@ -72,19 +72,19 @@ var onRun = function(context) {
         // Start working
         var pagesLoop = context.document.pages().objectEnumerator()
         while (item = pagesLoop.nextObject()) {
-            var artboard = MSArtboardGroup.alloc().initWithFrame(rectWithPadding(item.contentBounds()))
-            artboard.nodeName = item.name()
-            artboard.hasBackgroundColor = true
-            artboard.backgroundColor = MSColor.colorWithNSColor(wellColor())
-            artboard.includeBackgroundColorInExport = true
-            item.insertLayer_atIndex(artboard, 0)
+            var slice = MSSliceLayer.alloc().initWithFrame(rectWithPadding(item.contentBounds()))
+            slice.nodeName = item.name()
+            slice.hasBackgroundColor = true
+            slice.backgroundColor = MSColor.colorWithNSColor(wellColor())
+            slice.includeBackgroundColorInExport = true
+            item.insertLayer_atIndex(slice, 0)
             
             var exportFormat = MSExportFormat.formatWithScale_name_fileFormat(1.0, "", "png")
-            artboard.exportOptions().insertExportFormat_atIndex(exportFormat, 0)
-            var exportRequests = MSExportRequest.exportRequestsFromExportableLayer(artboard)
-            document.saveExportRequest_toFile(exportRequests[0], pathString() + "/" + artboard.nodeName() + ".png")
+            slice.exportOptions().insertExportFormat_atIndex(exportFormat, 0)
+            var exportRequests = MSExportRequest.exportRequestsFromExportableLayer(slice)
+            document.saveExportRequest_toFile(exportRequests[0], pathString() + "/" + slice.nodeName() + ".png")
             
-            item.removeLayerAtIndex(0)
+            item.removeLayer(slice)
             
             exportedCount += 1
         }
