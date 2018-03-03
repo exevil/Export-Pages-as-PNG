@@ -21,6 +21,6 @@
   "version" : "1.1",
   "description" : "Export every single page in document as a PNG file in chosen directory with paddings on each side for the better look.",
   "authorEmail" : "m@dbv.ae",
-  "name" : "Export Pages as PNG"
-    "appcast" : "https://api.sketchpacks.com/v1/plugins/com.exevil.export-pages-as-png/appcast"
+  "name" : "Export Pages as PNG",
+  "appcast" : "https://api.sketchpacks.com/v1/plugins/com.exevil.export-pages-as-png/appcast"
 }
