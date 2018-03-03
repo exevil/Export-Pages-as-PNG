@@ -4,7 +4,8 @@ Single-command Sketch plugin that exports every single page in document as a png
 *Since this plugin is only for internal use for now it hasn't any UI yet. If you want to change paddings in exported files please edit the `padding` value inside the `Export Pages as PNG.sketchplugin/Contents/Sketch/script.cocoascript` file.*
 
 ## Installation
-Just download and install the latest release as usual or via Skethpacks.
+Just download and install the latest release as usual or via Skethpacks:
+
 [![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install PLUGIN NAME with Sketchpacks")](https://www.sketchpacks.com/exevil/Export-Pages-as-PNG/install)
 
 ## Feedback
