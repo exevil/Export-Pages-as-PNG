@@ -2,7 +2,7 @@ var onRun = function(context) {
     
     // General declarations
     
-    var padding = 100
+    var padding = 0
     
     var document = context.document
     var defaults = NSUserDefaults.standardUserDefaults()
